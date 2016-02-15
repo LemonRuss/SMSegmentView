@@ -36,7 +36,8 @@ public class SMAlphaImageSegment: SMBasicSegment {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(margin: CGFloat, selectedAlpha: CGFloat, unselectedAlpha: CGFloat, pressedAlpha: CGFloat, image: UIImage?) {
+    public init(margin: CGFloat, selectedAlpha: CGFloat,
+      unselectedAlpha: CGFloat, pressedAlpha: CGFloat, image: UIImage?) {
         
         self.margin = margin
         self.selectedAlpha = selectedAlpha
@@ -64,7 +65,8 @@ public class SMAlphaImageSegment: SMBasicSegment {
     // MARK: Update Frame
     func resetContentFrame() {
         let margin = self.vertical ? (self.margin * 1.5) : self.margin;
-        let imageViewFrame = CGRectMake(margin, margin, self.frame.size.width - margin*2, self.frame.size.height - margin*2)
+        let imageViewFrame = CGRectMake(margin, margin,
+          self.frame.size.width - margin*2, self.frame.size.height - margin*2)
         
         self.imageView.frame = imageViewFrame
         
@@ -75,14 +77,16 @@ public class SMAlphaImageSegment: SMBasicSegment {
         super.setSelected(selected, inView: view)
         if selected {
             self.startAnimationToAlpha(self.selectedAlpha)
-        }
-        else {
+        } else {
             self.startAnimationToAlpha(self.unselectedAlpha)
         }
     }
     
-    func startAnimationToAlpha(alpha: CGFloat){
-        UIView.animateWithDuration(self.animationDuration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.1, options: [.CurveEaseInOut, .BeginFromCurrentState], animations: { () -> Void in
+    func startAnimationToAlpha(alpha: CGFloat) {
+        UIView.animateWithDuration(self.animationDuration,
+          delay: 0, usingSpringWithDamping: 0.8,
+          initialSpringVelocity: 0.1, options:
+          [.CurveEaseInOut, .BeginFromCurrentState], animations: { () -> Void in
             self.imageView.alpha = alpha
             }, completion: nil)
     }
