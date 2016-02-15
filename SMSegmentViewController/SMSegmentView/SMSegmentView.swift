@@ -4,9 +4,8 @@
 //  Created by Si MA on 03/01/2015.
 //  Copyright (c) 2015 Si Ma. All rights reserved.
 //
-
 import UIKit
-
+// swiftlint:disable force_cast
 /*
   Keys for segment properties
 */
@@ -24,9 +23,6 @@ let keySegmentOffSelectionTextColour = "OffSelectionTextColour"
 
 // The font of the text in the segment
 let keySegmentTitleFont = "TitleFont"
-
-
-
 
 @IBDesignable
 public class SMSegmentView: SMBasicSegmentView {
@@ -80,7 +76,13 @@ public class SMSegmentView: SMBasicSegmentView {
     }
         
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+      super.init(coder: aDecoder)
+      
+      layer.borderColor = UIColor(hex: 0x189AF7).CGColor
+      layer.borderWidth = 1.0
+      layer.cornerRadius = 5
+      layer.masksToBounds = true
+      
     }
     
     override public init(frame: CGRect) {
@@ -89,7 +91,8 @@ public class SMSegmentView: SMBasicSegmentView {
         self.layer.masksToBounds = true
     }
     
-    public init(frame: CGRect, separatorColour: UIColor, separatorWidth: CGFloat, segmentProperties: Dictionary<String, AnyObject>?) {
+    public init(frame: CGRect, separatorColour: UIColor,
+      separatorWidth: CGFloat, segmentProperties: Dictionary<String, AnyObject>?) {
         
         super.init(frame: frame)
         
@@ -141,7 +144,12 @@ public class SMSegmentView: SMBasicSegmentView {
     
     public func addSegmentWithTitle(title: String?, onSelectionImage: UIImage?, offSelectionImage: UIImage?) -> SMSegment {
         
-        let segment = SMSegment(verticalMargin: self.segmentVerticalMargin, onSelectionColour: self.segmentOnSelectionColour, offSelectionColour: self.segmentOffSelectionColour, onSelectionTextColour: self.segmentOnSelectionTextColour, offSelectionTextColour: self.segmentOffSelectionTextColour, titleFont: self.segmentTitleFont)
+        let segment = SMSegment(verticalMargin: self.segmentVerticalMargin,
+          onSelectionColour: self.segmentOnSelectionColour,
+          offSelectionColour: self.segmentOffSelectionColour,
+          onSelectionTextColour: self.segmentOnSelectionTextColour,
+          offSelectionTextColour: self.segmentOffSelectionTextColour,
+          titleFont: self.segmentTitleFont)
         
         segment.title = title
         segment.onSelectionImage = onSelectionImage
