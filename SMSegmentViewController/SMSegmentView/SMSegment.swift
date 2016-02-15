@@ -43,8 +43,12 @@ public class SMSegment: SMBasicSegment {
             var saturation: CGFloat = 0.0
             var brightness: CGFloat = 0.0
             var alpha: CGFloat = 0.0
-            self.onSelectionColour.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-            return UIColor(hue: hue, saturation: saturation*0.5, brightness: min(brightness*1.5, 1.0), alpha: alpha)
+            self.onSelectionColour.getHue(&hue,
+              saturation: &saturation,
+              brightness: &brightness,
+              alpha: &alpha)
+            return UIColor(hue: hue, saturation: saturation*0.5,
+              brightness: min(brightness*1.5, 1.0), alpha: alpha)
         }
     }
     
@@ -54,9 +58,13 @@ public class SMSegment: SMBasicSegment {
             self.label.text = self.title
             
             if let titleText = self.label.text as NSString? {
-                self.labelWidth = titleText.boundingRectWithSize(CGSize(width: self.frame.size.width, height: self.frame.size.height), options:NSStringDrawingOptions.UsesLineFragmentOrigin , attributes: [NSFontAttributeName: self.label.font], context: nil).size.width
-            }
-            else {
+                self.labelWidth =
+                  titleText.boundingRectWithSize(CGSize(width: self.frame.size.width,
+                    height: self.frame.size.height),
+                    options:NSStringDrawingOptions.UsesLineFragmentOrigin,
+                    attributes: [NSFontAttributeName: self.label.font],
+                    context: nil).size.width
+            } else {
                 self.labelWidth = 0.0
             }
             
@@ -82,9 +90,13 @@ public class SMSegment: SMBasicSegment {
             self.label.font = self.titleFont
             
             if let titleText = self.label.text as NSString? {
-                self.labelWidth = titleText.boundingRectWithSize(CGSize(width: self.frame.size.width + 1.0, height: self.frame.size.height), options:NSStringDrawingOptions.UsesLineFragmentOrigin , attributes: [NSFontAttributeName: self.label.font], context: nil).size.width
-            }
-            else {
+                self.labelWidth =
+                  titleText.boundingRectWithSize(CGSize(width: self.frame.size.width + 1.0,
+                    height: self.frame.size.height),
+                    options:NSStringDrawingOptions.UsesLineFragmentOrigin,
+                    attributes: [NSFontAttributeName: self.label.font],
+                    context: nil).size.width
+            } else {
                 self.labelWidth = 0.0
             }
             
@@ -123,7 +135,9 @@ public class SMSegment: SMBasicSegment {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(verticalMargin: CGFloat, onSelectionColour: UIColor, offSelectionColour: UIColor, onSelectionTextColour: UIColor, offSelectionTextColour: UIColor, titleFont: UIFont) {
+    public init(verticalMargin: CGFloat, onSelectionColour: UIColor,
+      offSelectionColour: UIColor, onSelectionTextColour: UIColor,
+      offSelectionTextColour: UIColor, titleFont: UIFont) {
         
         self.verticalMargin = verticalMargin
         self.onSelectionColour = onSelectionColour
@@ -155,27 +169,12 @@ public class SMSegment: SMBasicSegment {
     // MARK: Update Frame
     private func resetContentFrame() {
         
-        var distanceBetween: CGFloat = 0.0
-        var imageViewFrame = CGRectMake(0.0, self.verticalMargin, 0.0, self.frame.size.height - self.verticalMargin*2)
-        
-        if self.onSelectionImage != nil || self.offSelectionImage != nil {
-            // Set imageView as a square
-            imageViewFrame.size.width = self.frame.size.height - self.verticalMargin*2
-            distanceBetween = 5.0
-        }
-        
-        // If there's no text, align imageView centred
-        // Else align text centred
-        if self.labelWidth == 0.0 {
-            imageViewFrame.origin.x = max((self.frame.size.width - imageViewFrame.size.width) / 2.0, 0.0)
-        }
-        else {
-            imageViewFrame.origin.x = max((self.frame.size.width - imageViewFrame.size.width - self.labelWidth) / 2.0 - distanceBetween, 0.0)
-        }
+      var imageViewFrame = CGRectMake(0.0, self.verticalMargin,
+          self.bounds.width, self.frame.size.height - self.verticalMargin*2)
+            imageViewFrame.origin.x =
+              max((self.frame.size.width - imageViewFrame.size.width) / 2.0, 0.0)
         
         self.imageView.frame = imageViewFrame
-        
-        self.label.frame = CGRectMake(imageViewFrame.origin.x + imageViewFrame.size.width + distanceBetween, self.verticalMargin, self.labelWidth, self.frame.size.height - self.verticalMargin * 2)
     }
     
     // MARK: Selections
@@ -185,8 +184,7 @@ public class SMSegment: SMBasicSegment {
             self.backgroundColor = self.onSelectionColour
             self.label.textColor = self.onSelectionTextColour
             self.imageView.image = self.onSelectionImage
-        }
-        else {
+        } else {
             self.backgroundColor = self.offSelectionColour
             self.label.textColor = self.offSelectionTextColour
             self.imageView.image = self.offSelectionImage
@@ -201,5 +199,4 @@ public class SMSegment: SMBasicSegment {
             self.backgroundColor = self.willOnSelectionColour
         }
     }
-    
 }
