@@ -78,7 +78,7 @@ public class SMSegmentView: SMBasicSegmentView {
     required public init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
       
-      layer.borderColor = layer.borderColor = UIColor(red: 24/255, green: 154/255, blue: 247/255, alpha: 1.0).CGColor
+      layer.borderColor = UIColor(red: 24/255, green: 154/255, blue: 247/255, alpha: 1.0).CGColor
       layer.borderWidth = 1.0
       layer.cornerRadius = 5
       layer.masksToBounds = true
