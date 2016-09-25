@@ -27,9 +27,9 @@
 		6957D72E1A5A997A007AC81B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6957D72D1A5A997A007AC81B /* Images.xcassets */; };
 		6957D7311A5A997A007AC81B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6957D72F1A5A997A007AC81B /* LaunchScreen.xib */; };
 		6957D73D1A5A997A007AC81B /* SMSegmentViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6957D73C1A5A997A007AC81B /* SMSegmentViewControllerTests.swift */; };
-		C19086811BBCBCF900DCF698 /* SMBasicSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19086801BBCBCF900DCF698 /* SMBasicSegmentView.swift */; settings = {ASSET_TAGS = (); }; };
-		C19086831BBCBD1300DCF698 /* SMBasicSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19086821BBCBD1300DCF698 /* SMBasicSegment.swift */; settings = {ASSET_TAGS = (); }; };
-		C19086851BBCC92A00DCF698 /* SMAlphaImageSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19086841BBCC92A00DCF698 /* SMAlphaImageSegment.swift */; settings = {ASSET_TAGS = (); }; };
+		C19086811BBCBCF900DCF698 /* SMBasicSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19086801BBCBCF900DCF698 /* SMBasicSegmentView.swift */; };
+		C19086831BBCBD1300DCF698 /* SMBasicSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19086821BBCBD1300DCF698 /* SMBasicSegment.swift */; };
+		C19086851BBCC92A00DCF698 /* SMAlphaImageSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19086841BBCC92A00DCF698 /* SMAlphaImageSegment.swift */; };
 		C19594531BD91785008D80C0 /* SMSegmentView.h in Headers */ = {isa = PBXBuildFile; fileRef = C19594521BD91785008D80C0 /* SMSegmentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C19594581BD917ED008D80C0 /* SMSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DF371A619FC200DEFA20 /* SMSegmentView.swift */; };
 		C19594591BD917ED008D80C0 /* SMSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2346DF361A619FC200DEFA20 /* SMSegment.swift */; };
@@ -293,6 +293,7 @@
 					};
 					C195944F1BD91785008D80C0 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -571,6 +572,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sima.SMSegmentView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -594,6 +596,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sima.SMSegmentView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -636,6 +639,7 @@
 				C19594561BD91785008D80C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
